@@ -29,9 +29,10 @@ $(document).ready(function()
     // function to change negative values to zero
     function zeroify(x) { return x > 0 ? x : 0; }
 
-    // display today's date and week number
+    // display today's date, week number, and days elapsed
     $("#currDate").html(currDate.format("YYYY-MM-DD (ddd)"));
     $("#currWeek").html(currDate.diff(startDate, "weeks") + 1);
+    $("#daysElapsed").html(currDate.diff(startDate, "days") + 1);
 
     // set currDate to endDate if currDate is after endDate
     if (currDate.isAfter(endDate))
@@ -39,6 +40,7 @@ $(document).ready(function()
         currDate = endDate;
         $("#currDate").html(endDate.format("YYYY-MM-DD (ddd)")); // fix current date at endDate
         $("#currWeek").html(endDate.diff(startDate, "weeks") + 1); // fix current week
+        $("#daysElapsed").html(endDate.diff(startDate, "days") + 1); // fix current day elapsed
     }
 
 
