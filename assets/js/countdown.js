@@ -33,10 +33,6 @@ $(document).ready(function()
     $("#currDate").html(currDate.format("YYYY-MM-DD (ddd)"));
     $("#currWeek").html(currDate.diff(startDate, "weeks") + 1);
 
-    // sanity check for negative week number if currDate is before startDate
-    if (currDate.diff(startDate, "weeks") + 1 < 0)
-    { $("#currWeek").html("0"); }
-
     // set currDate to endDate if currDate is after endDate
     if (currDate.isAfter(endDate))
     {
