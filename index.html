@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>countdown</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body style="padding: 0;">
+    <div></div>
+    <div></div>
+    <div>
+        <div class="container">
+            <div class="row" style="margin-top: 0.75em;">
+                <div class="col"><strong><span id="currDate">2020-07-27 (Mon)</span></strong></div>
+                <div id="currWeek-parent" class="col-4 text-right" style="cursor: pointer"><strong><span>Week&nbsp;</span><span id="currWeek">0</span></strong></div>
+            </div>
+            <div class="row" style="margin-top: 1.5em;">
+                <div class="col-md-12">
+                    <h2 id="progress-label" class="text-center"><span id="progress">0</span>% complete</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="progress" style="height: 25px;">
+                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row fxx" style="margin-top: 1.5em;">
+                <div class="col-6 d-flex">
+                    <div class="card flex-grow-1">
+                        <div class="card-body">
+                            <h1 id="daysLeft" class="text-center card-title" style="margin-bottom: 0;">0</h1>
+                            <p id="daysLeft-label" class="text-center card-text">calendar days left</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 d-flex">
+                    <div class="card flex-grow-1">
+                        <div class="card-body">
+                            <h1 id="workingDaysLeft" class="text-center card-title" style="margin-bottom: 0;">0</h1>
+                            <p id="workingDaysLeft-label" class="text-center card-text">working days left</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 id="weeksLeft" class="text-center card-title" style="margin-bottom: 0;">0</h1>
+                            <p id="weeksLeft-label" class="text-center card-text">weeks to go</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="nextHoliday-row" class="row d-none" style="margin-top: 1em;">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 id="nextHoliday" class="text-center card-title" style="margin-bottom: 0;">0</h1>
+                            <p id="nextHoliday-label" class="text-center card-text" style="margin-bottom: 0.5em;">days to next public holiday</p>
+                            <h4 id="nextHolidayName" class="text-center"></h4>
+                            <h5 id="nextHolidayDate" class="text-center"></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/moment-business-days.js"></script>
+    <script src="assets/js/countdown.js"></script>
+</body>
+
+</html>
