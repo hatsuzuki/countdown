@@ -127,6 +127,77 @@ $(document).ready(function()
 
 
 
+    /* WEEKEND COUNTDOWN */
+
+    // get the final Friday evening before endDate
+    var finalFriday = moment(endDate).startOf("day").subtract(1, "week").isoWeekday(5).add(19, "hours");
+    
+    // function to update countdown to the next Friday 19:00:00 before finalFriday
+    update = function()
+    {
+        // if today is after finalFriday, do nothing and hide everything
+        if (moment().isSameOrAfter(finalFriday))
+        {
+            $("#weekTimer-row").addClass("d-none");
+            $("#weekTimer").html("");
+            $("#weekTimer-label").html("");
+            return;
+        }
+
+        // else if current time is between Friday 19:00:00 and Sunday 22:00:00, return special text
+        if ((moment().isoWeekday() == 5 && moment().hour() >= 19) ||
+            (moment().isoWeekday() == 6) ||
+            (moment().isoWeekday() == 7 && moment().hour() < 22))
+        {
+            $("#weekTimer").html("💃🕺💃🕺");
+            $("#weekTimer-label").html("");
+            return;
+        }
+
+        // else display countdown to next Friday 19:00:00
+        
+        // get the next instance of Friday 19:00:00 (i.e. current week's Friday if today is a weekday,
+        // else next week's Friday)
+        var nextFriday;
+        if (moment().isoWeekday() <= 5)
+        { nextFriday = moment().isoWeekday(5).startOf("day").add(19, "hours"); }
+        else
+        { nextFriday = moment().add(1, "week").isoWeekday(5).startOf("day").add(19, "hours"); }
+
+        // function to pad number with leading zeroes until it is length n
+        Number.prototype.pad = function(size)
+        {
+            var s = String(this);
+            while (s.length < (size || 2)) {s = "0" + s;}
+            return s;
+        };
+
+        // calculate number of seconds between current time and nextFriday
+        // then convert into hours, minutes, and seconds
+        var diffSec = nextFriday.diff(moment(), 'seconds'),
+            hours = Math.floor(diffSec / 3600),
+            diff = diffSec - hours * 3600,
+            minutes = Math.floor(diff / 60),
+            seconds = diff - minutes * 60;
+        
+        // update label
+        $("#weekTimer").html(hours + "h " + minutes.pad(2) + "m " + seconds.pad(2) + "s");
+        $("#weekTimer-label").html("until Friday evening");
+    };
+    
+    // if today is after finalFriday, remove the entire card
+    // else run the update function once every second
+    // (logic is reversed to prevent flash of unstyled content
+    // so in reality the card is actually hidden on load and shown if there is an upcoming public holiday)
+    if (moment().isSameOrBefore(finalFriday))
+    {
+        update();
+        setInterval(update, 1000);
+        $("#weekTimer-row").removeClass("d-none");
+    }
+
+
+
     /* NEXT PUBLIC HOLIDAY */
 
     // get list of dates from holidays
