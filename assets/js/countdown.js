@@ -144,7 +144,9 @@ $(document).ready(function()
     // after the last public holiday before endDate has passed, remove the entire card
     // (logic is reversed to prevent flash of unstyled content
     // so in reality the card is actually hidden on load and shown if there is an upcoming public holiday)
-    if (currDate.isSameOrAfter(moment(nextHoliday)) == false)
+    if (currDate.isBefore(moment(nextHoliday)) &&
+        currDate.isBefore(endDate) &&
+        moment(nextHoliday).isBefore(endDate))
     { $("#nextHoliday-row").removeClass("d-none"); }
 
     // calculate number of days to the next public holiday
