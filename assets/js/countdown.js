@@ -96,7 +96,7 @@ $(document).ready(function()
                         "2020-08-10": "🇸🇬 National Day (observed)",
                         // "2020-11-14": "🪔 Deepavali <small><em>(no off though)</em></small>",
                         "2020-12-25": "🎄 Christmas Day",
-                        "2021-01-01": "🎆 New Year's Day",
+                        "2021-01-01": "🗻 New Year's Day",
                         "2021-02-12": "🧧 Chinese New Year Day 1",
                         // "2021-02-13": "🧨 Chinese New Year Day 2  <small><em>(no off though)</em></small>",
                         "2021-04-02": "⛪ Good Friday"
