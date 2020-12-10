@@ -17,7 +17,7 @@ $(document).ready(function()
 {
     // fixed start and end dates
     var startDate = moment("2020-07-27");
-    var endDate = moment("2021-04-29");
+    var endDate = moment("2021-04-23");
 
     // get current date
     var currDate = moment().startOf("day");
