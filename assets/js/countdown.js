@@ -16,8 +16,8 @@
 $(document).ready(function()
 {
     // fixed start and end dates
-    var startDate = moment("2020-07-27");
-    var endDate = moment("2021-04-23");
+    var startDate = moment("2023-09-01");
+    var endDate = moment("2024-04-30");
 
     // get current date
     var currDate = moment().startOf("day");
@@ -88,18 +88,17 @@ $(document).ready(function()
     // set locale
     moment.locale("en");
 
-    // define public holidays between 2020-07-27 and 2020-04-29
-    // exclude public holidays that fall on a Saturday because no off will be given
+    // define public holidays between start and end date
     var holidays =  {
-                        "2020-07-31": "🕌 Hari Raya Haji",
-                        "2020-08-09": "🇸🇬 National Day",
-                        "2020-08-10": "🇸🇬 National Day (observed)",
-                        // "2020-11-14": "🪔 Deepavali <small><em>(no off though)</em></small>",
-                        "2020-12-25": "🎄 Christmas Day",
-                        "2021-01-01": "🗻 New Year's Day",
-                        "2021-02-12": "🧧 Chinese New Year Day 1",
-                        // "2021-02-13": "🧨 Chinese New Year Day 2  <small><em>(no off though)</em></small>",
-                        "2021-04-02": "⛪ Good Friday"
+                        "2023-11-12": "🪔 Deepavali",
+                        "2023-11-13": "🛕 Deepavali (observed)",
+                        "2023-12-25": "🎄 Christmas Day",
+                        "2024-01-01": "🗻 New Year's Day",
+                        "2024-02-10": "🧧 Chinese New Year Day 1",
+                        "2024-02-11": "🧨 Chinese New Year Day 2",
+                        "2024-02-12": "🐉 Chinese New Year Day 2 (observed)",
+                        "2024-03-29": "⛪ Good Friday",
+                        "2024-04-10": "🕌 Hari Raya Puasa"
                     };
 
     // define holidays and working days for locale
